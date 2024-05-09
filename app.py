@@ -135,11 +135,11 @@ def predict(model, text, melody, duration, topk, topp, temperature, cfg_coef, se
         audio_write(
             file.name, output, MODEL.sample_rate, strategy="loudness",
             loudness_headroom_db=16, loudness_compressor=True, add_suffix=False)
-        waveform_video = gr.make_waveform(file.name, bar_count=75)
+        waveform_video = gr.make_waveform(file.name, bar_count=150)
         if background is None or len(background) == 0:
             random_string = generate_random_string(12)
             random_string = f"{random_string}.mp4"
-            resize_video(waveform_video, random_string, 900, 300)
+            resize_video(waveform_video, random_string, 2000, 300)
             waveform_video = random_string
     global UNLOAD_MODEL
     if UNLOAD_MODEL:
